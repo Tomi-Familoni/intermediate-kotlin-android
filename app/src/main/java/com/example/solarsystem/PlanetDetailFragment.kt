@@ -39,11 +39,11 @@ class PlanetDetailFragment : Fragment() {
             planetOrbit = findViewById(R.id.planet_orbit)
         }
 
-        if (arguments.containsKey(ARG_ITEM_ID)) {
-            planet = PlanetsDataProvider.ITEM_MAP[arguments.getString(ARG_ITEM_ID)]
+        if (arguments!!.containsKey(ARG_ITEM_ID)) {
+            planet = PlanetsDataProvider.ITEM_MAP[arguments?.getString(ARG_ITEM_ID)]
             planet?.let {
                 val activity = this.activity
-                val appBarLayout = activity.findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout)
+                val appBarLayout = activity!!.findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout)
                 appBarLayout.title = it.name
 
                 val image = activity.findViewById<ImageView>(R.id.image)
@@ -65,11 +65,11 @@ class PlanetDetailFragment : Fragment() {
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle?) {
+    override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 
         planet?.let {
-            arguments.putString(ARG_ITEM_ID, it.id)
+            arguments?.putString(ARG_ITEM_ID, it.id)
         }
     }
 

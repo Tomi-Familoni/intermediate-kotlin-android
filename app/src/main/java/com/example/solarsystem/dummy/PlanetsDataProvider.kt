@@ -109,7 +109,7 @@ object PlanetsDataProvider {
 
     private fun addItem(item: Planet) {
         ITEMS.add(item)
-        ITEM_MAP.put(item.id, item)
+        ITEM_MAP[item.id] = item
     }
 
 }
