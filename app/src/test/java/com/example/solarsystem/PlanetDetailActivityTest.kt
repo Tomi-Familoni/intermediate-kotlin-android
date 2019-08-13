@@ -21,7 +21,16 @@ class PlanetDetailActivityTest{
 
     @Test
     fun test(){
-        
+        onView(withId(R.id.detail_toolbar))
+                .check(matches(not(isDisplayed())))
+
+        onView(withId(R.id.fab))
+                .perform(click())
+
+        onView(withId(R.id.detail_toolbar))
+                .check(matches(withText("Replace with your own detail action")))
+                .check(matches(isDisplayed()))
+
     }
 
 
