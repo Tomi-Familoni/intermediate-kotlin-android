@@ -2,9 +2,9 @@ package com.example.solarsystem
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
+import androidx.appcompat.widget.Toolbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,17 +22,17 @@ class PlanetListActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.planet_list)
+        val recyclerView = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.planet_list)
         setupRecyclerView(recyclerView)
     }
 
-    private fun setupRecyclerView(recyclerView: RecyclerView) {
+    private fun setupRecyclerView(recyclerView: androidx.recyclerview.widget.RecyclerView) {
         recyclerView.adapter = PlanetsAdapter(PlanetsDataProvider.ITEMS)
     }
 
     inner class PlanetsAdapter internal constructor(
             private val values: List<Planet>
-    ) : RecyclerView.Adapter<PlanetsAdapter.ViewHolder>() {
+    ) : androidx.recyclerview.widget.RecyclerView.Adapter<PlanetsAdapter.ViewHolder>() {
 
         private val clickListener = View.OnClickListener { view ->
             val item = view.tag as Planet
@@ -60,7 +60,7 @@ class PlanetListActivity : AppCompatActivity() {
 
         override fun getItemCount(): Int = values.size
 
-        inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        inner class ViewHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
             val nameText: TextView = view.findViewById(R.id.planet_name)
             val imageView: ImageView = view.findViewById(R.id.planet_image)
         }

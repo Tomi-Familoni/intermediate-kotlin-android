@@ -1,8 +1,8 @@
 package com.example.solarsystem
 
 import android.os.Bundle
-import android.support.design.widget.CollapsingToolbarLayout
-import android.support.v4.app.Fragment
+import com.google.android.material.appbar.CollapsingToolbarLayout
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +16,7 @@ const val ARG_ITEM_ID = "item_id"
 private const val TERRESTRIAL = "Terrestrial"
 private const val GAS_GIANT = "Gas Giant"
 
-class PlanetDetailFragment : Fragment() {
+class PlanetDetailFragment : androidx.fragment.app.Fragment() {
 
     private lateinit var planetDescription: TextView
     private lateinit var planetComposition: TextView
@@ -43,7 +43,7 @@ class PlanetDetailFragment : Fragment() {
             planet = PlanetsDataProvider.ITEM_MAP[arguments?.getString(ARG_ITEM_ID)]
             planet?.let {
                 val activity = this.activity
-                val appBarLayout = activity!!.findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout)
+                val appBarLayout = activity!!.findViewById<com.google.android.material.appbar.CollapsingToolbarLayout>(R.id.toolbar_layout)
                 appBarLayout.title = it.name
 
                 val image = activity.findViewById<ImageView>(R.id.image)
